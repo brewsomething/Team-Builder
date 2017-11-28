@@ -37,8 +37,8 @@ def teams_list(team):
 # write letters to guardians
 def letters_to_guardians(team):
     for player in team[1]:
-        with open('{}.txt'.format(player['Name']), 'a') as file:
-            file.write("Dear {},\n\nWe are excited to inform you that {} will be playing for the {} this year! The first practice will be on Wednesday, February 7, 2018 at 4:30PM. The location of this practice will be sent out at a later date. Please feel free to contact us with any questions.\nThank you,\n\nThe Management".format(player['Guardian Name(s)'], player['Name'], team[0]))
+        with open('letters/{}.txt'.format(player['Name']), 'a') as file:
+            file.write("Dear {},\n\nWe are excited to inform you that {} will be playing for the {} this year! The first practice will be on Wednesday, February 7, 2018 at 4:30PM. The location of this practice will be sent out at a later date. Please feel free to contact us with any questions.\n\nThank you,\n\nThe Management\n".format(player['Guardian Name(s)'], player['Name'], team[0]))
 
 
 if __name__ == '__main__':
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     team3 = ['Raptors', [], 0, 0]
 
     # read the data from the supplied CSV file. Store that data in an appropriate data type
-    with open('soccer_players.csv', newline='') as csvfile:
+    with open('data/soccer_players.csv', newline='') as csvfile:
         player_reader = csv.DictReader(csvfile, delimiter=',')
         player_list = list(player_reader)
 
